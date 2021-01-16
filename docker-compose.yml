@@ -17,3 +17,15 @@ services:
     - 5000:5000
     networks:
      - backend-network
+
+  front:
+    build:
+      context: ./
+      dockerfile: ./front/Dockerfile
+    stdin_open: true
+    tty: true
+    ports: 
+        - "3000:3000"
+    volumes:
+      - ./front:/app
+      - /app/node_modules
